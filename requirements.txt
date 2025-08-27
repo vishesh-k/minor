@@ -9,3 +9,7 @@ pyarrow>=12.0       # To handle Arrow table conversions in Streamlit
 matplotlib>=3.8     # For plotting before/after images
 opencv-python-headless
 seaborn
+cartopy
+shapely
+pyproj
+geopandas
