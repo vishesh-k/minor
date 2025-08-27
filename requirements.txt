@@ -13,3 +13,5 @@ cartopy
 shapely
 pyproj
 geopandas
+streamlit-folium
+
