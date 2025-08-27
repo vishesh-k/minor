@@ -1,0 +1,11 @@
+streamlit>=1.30
+pandas>=2.0
+numpy>=1.25
+scikit-learn>=1.2
+joblib>=1.3
+plotly>=5.20        # For interactive charts (px)
+pydeck>=0.9.0       # For map visualizations
+pyarrow>=12.0       # To handle Arrow table conversions in Streamlit
+matplotlib>=3.8     # For plotting before/after images
+opencv-python-headless
+seaborn
