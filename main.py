@@ -1023,7 +1023,7 @@ elif choice == "Portfolio":
             """)
         with right:
             st.image(
-                r"C:\Users\adity\OneDrive\Documents\Pictures\Documents - Copy\1685670270272.jpg",
+                "https://t3.ftcdn.net/jpg/10/25/12/36/360_F_1025123627_aiwBz4jP8ED17Tr2ut8XxugPo69MW61J.jpg",
                 # Placeholder image URL
                 caption="SHIVSHAKTI",
                 width=200
