@@ -1223,9 +1223,21 @@ elif choice == "Portfolio":
 
 
 elif choice == "Team":
-  
+      
     st.markdown(f"<div class='big-title'>Meet the <span style='color:blue'>Team</span></div>", unsafe_allow_html=True)
     import streamlit as st
+    from PIL import Image, ImageOps
+
+    def image_circle(image_path):
+    """Convert an image to a circular image."""
+    img = Image.open(image_path).convert("RGBA")
+    size = min(img.size)
+    mask = Image.new("L", (size, size), 0)
+    draw = ImageDraw.Draw(mask)
+    draw.ellipse((0, 0, size, size), fill=255)
+    output = ImageOps.fit(img, (size, size))
+    output.putalpha(mask)
+    return output
 
     st.markdown("""
     <h2 style='text-align: center; 
@@ -1272,19 +1284,9 @@ elif choice == "Team":
             col1, col2 = st.columns([1, 4])
 
             with col1:
-             from PIL import Image, ImageOps
+                 st.image(image_circle(member.get("photo_url") or member.get("photo")), use_container_width=False)
 
-def image_circle(image_path):
-    """Convert an image to a circular image."""
-    img = Image.open(image_path).convert("RGBA")
-    size = min(img.size)
-    mask = Image.new("L", (size, size), 0)
-    draw = ImageDraw.Draw(mask)
-    draw.ellipse((0, 0, size, size), fill=255)
-    output = ImageOps.fit(img, (size, size))
-    output.putalpha(mask)
-    return output
-
+             
 
             with col2:
                 st.subheader(member["name"])
