@@ -1226,54 +1226,7 @@ elif choice == "Team":
     st.markdown(f"<div class='big-title'>Meet the <span style='color:{PRIMARY}'>Team</span></div>",
                 unsafe_allow_html=True)
     import streamlit as st
-
-
-    def team_section():
-        st.markdown("## 👨‍🔬 Meet the Team")
-
-        team = [
-            {
-                "name": "Vishesh Kumar Prajapati",
-                "role": "AI/ML ENGINEER",
-                "contrib": "Core package development, deep learning integration, photogrammetry tools.",
-                "email": "Visheshprajapati7920@gmail.com",
-                "linkedin": "https://www.linkedin.com/in/vishesh-kumar-prajapati-45111829a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-            },
-            {
-                "name": "Tejashwani Singh Rathore",
-                "role": "Researcher,",
-                "contrib": "Glacier monitoring expertise and data validation.",
-                "email": "tejaswanirathore@gmail.com",
-                "linkedin": "https://www.linkedin.com/in/tejashwani-rathore-3b93a92a9?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-            },
-            {
-                "name": "Sumit Yadav",
-                "role": "Researcher, ",
-                "contrib": "Field deployment and stereo-camera setup.",
-                "email": "sy2902913@gmail.com",
-                "linkedin": "https://www.linkedin.com/in/sumit-yadav-3b93a92a9?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-            },
-
-            {
-                "name": "Vijay Kharwar",
-                "role": "Collaborator,",
-                "contrib": "Testing and multi-epoch processing.",
-                "email": "vijaykharwargzp2003@gmail.com",
-                "linkedin": "https://www.linkedin.com/in/vijay-kharwar-b290aa2ab?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-            }
-        ]
-
-        # Display team in interactive expanders
-        for member in team:
-            with st.expander(f"👤 {member['name']} - {member['role']}", expanded=False):
-                st.write(member["contrib"])
-                st.markdown(f"📧 Email: [{member['email']}](mailto:{member['email']})")
-                st.markdown(f"🔗 LinkedIn: [{member['linkedin']}]({member['linkedin']})")
-
-
-    # Call inside Streamlit
-    team_section()
-      st.markdown(f"<div class='big-title'>Meet the <span style='color:blue'>Team</span></div>", unsafe_allow_html=True)
+ st.markdown(f"<div class='big-title'>Meet the <span style='color:blue'>Team</span></div>", unsafe_allow_html=True)
     st.markdown("""
     <h2 style='text-align: center; 
                font-size: 36px; 
@@ -1389,6 +1342,53 @@ elif choice == "Team":
         data=json.dumps(st.session_state.team, indent=2, default=str).encode("utf-8"),
         file_name="team.json"
     )
+
+    def team_section():
+        st.markdown("## 👨‍🔬 Meet the Team")
+
+        team = [
+            {
+                "name": "Vishesh Kumar Prajapati",
+                "role": "AI/ML ENGINEER",
+                "contrib": "Core package development, deep learning integration, photogrammetry tools.",
+                "email": "Visheshprajapati7920@gmail.com",
+                "linkedin": "https://www.linkedin.com/in/vishesh-kumar-prajapati-45111829a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            },
+            {
+                "name": "Tejashwani Singh Rathore",
+                "role": "Researcher,",
+                "contrib": "Glacier monitoring expertise and data validation.",
+                "email": "tejaswanirathore@gmail.com",
+                "linkedin": "https://www.linkedin.com/in/tejashwani-rathore-3b93a92a9?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            },
+            {
+                "name": "Sumit Yadav",
+                "role": "Researcher, ",
+                "contrib": "Field deployment and stereo-camera setup.",
+                "email": "sy2902913@gmail.com",
+                "linkedin": "https://www.linkedin.com/in/sumit-yadav-3b93a92a9?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            },
+
+            {
+                "name": "Vijay Kharwar",
+                "role": "Collaborator,",
+                "contrib": "Testing and multi-epoch processing.",
+                "email": "vijaykharwargzp2003@gmail.com",
+                "linkedin": "https://www.linkedin.com/in/vijay-kharwar-b290aa2ab?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            }
+        ]
+
+        # Display team in interactive expanders
+        for member in team:
+            with st.expander(f"👤 {member['name']} - {member['role']}", expanded=False):
+                st.write(member["contrib"])
+                st.markdown(f"📧 Email: [{member['email']}](mailto:{member['email']})")
+                st.markdown(f"🔗 LinkedIn: [{member['linkedin']}]({member['linkedin']})")
+
+
+    # Call inside Streamlit
+    team_section()
+     
 
 
 
