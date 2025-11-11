@@ -1223,7 +1223,7 @@ elif choice == "Portfolio":
 
 
 elif choice == "Team":
-    if choice == "Team":   # ✅ Correct start of Team section
+
     st.markdown(f"<div class='big-title'>Meet the <span style='color:blue'>Team</span></div>", unsafe_allow_html=True)
     st.markdown("""
     <h2 style='text-align: center; 
