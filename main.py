@@ -1223,9 +1223,8 @@ elif choice == "Portfolio":
 
 
 elif choice == "Team":
-    st.markdown(f"<div class='big-title'>Meet the <span style='color:{PRIMARY}'>Team</span></div>",
-                unsafe_allow_html=True)
-         st.markdown(f"<div class='big-title'>Meet the <span style='color:blue'>Team</span></div>", unsafe_allow_html=True)
+  
+    st.markdown(f"<div class='big-title'>Meet the <span style='color:blue'>Team</span></div>", unsafe_allow_html=True)
     import streamlit as st
 
     st.markdown("""
