@@ -1222,8 +1222,42 @@ elif choice == "Portfolio":
 
 
 
-elif choice == "Team":
+import streamlit as st
+import json
+from PIL import Image, ImageDraw, ImageOps
+import requests
+from io import BytesIO
 
+# ---------- Function to Make Circular Images ----------
+def image_circle(img_source):
+    """
+    Takes either a URL or an uploaded file and returns a circular PIL image.
+    """
+    try:
+        # If it's a URL string
+        if isinstance(img_source, str):
+            response = requests.get(img_source)
+            img = Image.open(BytesIO(response.content)).convert("RGBA")
+        else:
+            # If it's a file uploaded by user
+            img = Image.open(img_source).convert("RGBA")
+
+        size = min(img.size)
+        mask = Image.new("L", (size, size), 0)
+        draw = ImageDraw.Draw(mask)
+        draw.ellipse((0, 0, size, size), fill=255)
+
+        output = ImageOps.fit(img, (size, size))
+        output.putalpha(mask)
+        return output
+
+    except Exception as e:
+        st.warning(f"⚠️ Could not process image: {e}")
+        return None
+
+
+# ---------- TEAM SECTION ----------
+if choice == "Team":  # ✅ Correct start of Team section
     st.markdown(f"<div class='big-title'>Meet the <span style='color:blue'>Team</span></div>", unsafe_allow_html=True)
     st.markdown("""
     <h2 style='text-align: center; 
@@ -1243,25 +1277,27 @@ elif choice == "Team":
              "linkedin": "https://www.linkedin.com/in/vishesh-kumar-prajapati-45111829a",
              "github": "https://github.com/vishes-i",
              "photo_url": "https://d2gg9evh47fn9z.cloudfront.net/1600px_COLOURBOX37232552.jpg"},
+
             {"name": "Sumit Yadav", "role": "Web Developer",
              "bio": "Frontend & backend developer who loves crafting responsive web apps.",
              "email": "sy2902913@gmail.com",
              "linkedin": "https://www.linkedin.com/in/sumit-yadav-3b93a92a9",
              "github": "https://github.com/",
              "photo_url": "https://d2gg9evh47fn9z.cloudfront.net/1600px_COLOURBOX37236066.jpg"},
-            {"name": "Tejashwani Singh Rathore ", "role": "Web Developer",
+
+            {"name": "Tejashwani Singh Rathore", "role": "Web Developer",
              "bio": "Frontend developer who loves crafting responsive web apps.",
-             "email": "tejaswanirathore910@gmail.com ",
+             "email": "tejaswanirathore910@gmail.com",
              "linkedin": "https://www.linkedin.com/in/tejaswanirathore-3b93a92a9",
              "github": "https://github.com/",
              "photo_url": "https://img.freepik.com/premium-photo/young-girl-hr-3d-character-young-working-girl-cartoon-character-professional-girl-character_1002350-2145.jpg?w=2000"},
+
             {"name": "Vijay Kharwar", "role": "Web Developer",
              "bio": "Frontend developer who loves crafting responsive web apps.",
              "email": "vijaykharwargzp2003@gmail.com",
-             "linkedin": "https://www.linkedin.com/in/vijay-kharwar-b290aa2ab?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+             "linkedin": "https://www.linkedin.com/in/vijay-kharwar-b290aa2ab",
              "github": "https://github.com/vijaykharwargzp2003-coder",
              "photo_url": "https://img.freepik.com/free-vector/confident-businessman-with-smile_1308-134106.jpg"}
-
         ]
 
     # ---- Display Team ----
@@ -1270,7 +1306,11 @@ elif choice == "Team":
             col1, col2 = st.columns([1, 4])
 
             with col1:
-                st.image(image_circle(member.get("photo_url") or member.get("photo")), use_container_width=False)
+                img = image_circle(member.get("photo_url") or member.get("photo"))
+                if img:
+                    st.image(img, use_container_width=False)
+                else:
+                    st.image(member.get("photo_url") or member.get("photo"), use_container_width=False)
 
             with col2:
                 st.subheader(member["name"])
