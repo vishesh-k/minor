@@ -1243,23 +1243,23 @@ elif choice == "Team":
                 "name": "Tejashwani Singh Rathore",
                 "role": "Researcher,",
                 "contrib": "Glacier monitoring expertise and data validation.",
-                "email": "",
-                "linkedin": ""
+                "email": "tejaswanirathore@gmail.com",
+                "linkedin": "https://www.linkedin.com/in/tejashwani-rathore-3b93a92a9?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
             },
             {
                 "name": "Sumit Yadav",
                 "role": "Researcher, ",
                 "contrib": "Field deployment and stereo-camera setup.",
-                "email": "daniele@example.com",
-                "linkedin": "https://linkedin.com/in/daniele"
+                "email": "sy2902913@gmail.com",
+                "linkedin": "https://www.linkedin.com/in/sumit-yadav-3b93a92a9?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
             },
 
             {
                 "name": "Vijay Kharwar",
                 "role": "Collaborator,",
                 "contrib": "Testing and multi-epoch processing.",
-                "email": "",
-                "linkedin": ""
+                "email": "vijaykharwargzp2003@gmail.com",
+                "linkedin": "https://www.linkedin.com/in/vijay-kharwar-b290aa2ab?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
             }
         ]
 
